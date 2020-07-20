@@ -1,0 +1,21 @@
+ <h4>Filter Rooms </h4> 
+  <%= form_for ([@room, @search_room]) do |f| %>
+  <div class="field">
+    <%= f.label :price, "Enter Price in kwacha" %><br>
+    <%= f.text_field :price %>
+  </div>
+<div class="row">
+  <div class="col-md-6">
+    <%= f.label :min_price, "min price" %><br>
+    <%= f.text_field :min_price, size: 10 %>
+   </div>
+  <div class="col-md-6">
+
+    <%= f.label :min_price, "max price" %><br>
+    <%= f.text_field :max_price, size: 10 %>
+ </div>
+</div>
+
+  <div class="actions"><%= f.submit "Search" %></div>
+  <% end %>
+

@@ -1,0 +1,51 @@
+.header {
+	background: #6a5acd;
+	width: 100%;
+	padding-left: 15px;
+}
+
+.logo a{
+	color: 	#e0ffff;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.navbar-header{
+	padding-top: 10px;
+}
+
+.upper-header {
+	height: 50%;
+}
+
+.lower-header {
+	height: 50%;
+
+}
+
+
+
+.navbar {
+	li {
+		a {
+			color: 	gold;
+
+		}
+	}
+
+}
+.navbar {
+	li {
+		a:hover{
+			background:blue;
+		}
+	}
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	h4 {
+	color: #e0ffff;
+    text-shadow: 2px 2px black;
+	}
+}
+

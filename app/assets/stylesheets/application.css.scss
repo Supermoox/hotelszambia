@@ -1,0 +1,270 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "lightbox";
+@import 'font_awesome5.css';
+
+.wrapper {
+	background-color: #F5F5F5;
+	box-shadow: 0px -5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail{
+	margin-bottom:0;
+	padding: 0;
+}
+.home_thumbs img{
+	height: auto;
+	width: 100%;
+	max-height: 220px;
+	min-height: 180px;
+}
+
+.main{
+	background-color: #F5F5DC;
+
+}
+
+
+.col-sm-6{
+	padding: 10px;
+}
+
+.row{
+	margin:0;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.table-responsive{
+	margin:0;
+	border: none;
+}
+.col-md-3{
+	padding:0;
+}
+
+.col-md-7 {
+	padding-left: 0;
+	padding-right: 0;
+}
+.col-md-9{
+	padding: 0;
+}
+
+.navbar-left{
+	margin-left: 19%;
+}
+
+.navbar-default {
+	background-color: #6a5acd;
+	border-color:#6a5acd; 
+	margin-bottom: 50px;
+}
+
+.col-sm-3 {
+	width: 50%;
+	
+}
+
+.navbar{
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+
+.navbar-nav {
+    float: left;
+    margin: 0;
+}
+
+.form-control{
+	height: 24px;
+  margin-bottom: 5px;
+  width:20px;
+
+
+}
+
+.navbar-form .form-control {
+    display: inline-block;
+    /* width: auto; */
+    vertical-align: middle;
+    width: 300px;
+}
+
+.btn-default {
+	height: 24px;
+	margin-bottom: 5px;
+
+}
+
+.btn {
+padding: 2px;	
+padding-left: 10px;	
+padding-right: 10px;	
+
+
+vertical-align: middle;;
+}
+
+.navbar-brand > img {
+	margin-left: 30px;
+}
+
+
+
+h4 {
+	margin-left: 0;
+	color: #6a5acd;
+
+}
+
+.col-md-2{
+	text-align: center;
+	padding-top: 10px;
+	width: 25%;
+	padding-left: 50px;
+}
+.first{
+	padding-left: 50px;
+}
+
+.third{
+	padding-left: 10px;
+}
+
+
+.range{
+	width:21%;
+	text-align: center;
+}
+
+.btn-danger{
+	background-color: #e0ffff;
+	border-color:orange;
+	color:  #6a5acd;
+	
+}
+.btn-danger:hover{
+	background-color: #e0ffff;
+	color:  #6a5acd;
+}
+
+.search-lebels{
+	color: #e0ffff;
+}
+
+.table > tbody > tr > td {
+	border-top: 0px;
+}
+
+.accommodation-form{
+	padding-left:25%;
+}
+
+.form-control{
+	width: 500px;
+	height: auto;
+}
+
+.actions{
+	margin-top:15px;
+}
+.rooms-form{
+	padding: 20px;
+	background-color: white;
+}
+
+.item img{
+	width: 100%;
+	height:400px;
+}
+.page-header{
+	text-align: center;
+	color:  #6a5acd;
+}
+.user-form{
+	text-align: center;
+}
+.alert-info{
+	padding: 0 0 0 15px;
+	margin: 0;
+	background-color: #6a5acd;
+	color: 	#7FFF00;
+	border: 0;
+	border-radius: 0;
+}
+.user-formcontrol{
+	margin-left: 35%;
+	width:30%;
+}
+.footer-row{
+    background-color: #F5F5DC;
+    padding-top: 100px;
+}
+
+
+
+a:hover{
+	text-decoration:none;
+}.top-left{
+	float: right;
+}
+
+.param{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 5px;
+	height: 26px;
+	
+}
+
+
+.btn-danger {
+    background-color: #6a5acd;
+    border: 1px solid #ccc;
+    color: #e0ffff; 
+    padding: 10px;
+    font-size: 16px;
+}
+.btn-danger:hover {
+    background-color: #e0ffff; 
+    border: 1px solid #ccc;
+    color: #6a5acd;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.search-row{
+	background-color: #6a5acd;
+	margin-bottom: 20px;
+}
+.searcher{
+	padding-left: 5%;
+	margin-right: 5%;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #e0ffff; 
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: orange; 
+}
+.navbar-nav > li {
+    float: right;
+}

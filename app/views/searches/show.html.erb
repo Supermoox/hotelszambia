@@ -1,0 +1,162 @@
+<div class="container"> 
+  <div class="row">
+  <div class="row main-content">
+    <div class="col-md-3">
+      <div class="side-content">
+
+
+       <%= form_for  @search do |f| %>      
+        <div class="search_item">
+          <input type="text" name="search[keywords]" id="search_keywords" placeholder="Hotel name">
+        </div>  
+        <div class="search_item">
+
+          <div class="custom-select" style="width:100%;">
+            <%= f.collection_select :city_id, City.order(:name), :id, :name, :prompt => "Any City" %>
+          </div>
+        </div>        
+        <div class="search_item">
+          <div class="custom-select" style="width:100%;">
+            <%= f.collection_select :category_id, Category.order(:name), :id, :name, :prompt => "All Categories" %>
+          </div>
+        </div>      
+    
+        <div class="search_item">
+          <%= f.submit "Search", class: "btn btn-danger" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-md-9 ">
+      <% @searches.each do |accommodation| %>
+
+        <div class="main-right">
+          <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <div class="thumbnail home_thumbs">
+                <%= link_to (image_tag accommodation.wallpapers.last.image, class: 'image'), accommodation %>
+              </div>       
+            </div>       
+            <div class="col-sm-6 accommodation_info">
+              <div class="table-responsive">
+                <tr> <h4 ><%= link_to accommodation.name ,accommodation %> </h4> </tr>     
+                <tr>
+                  <span class="location">
+                    <svg viewBox="0 0 12 12">
+                        <path d="M6 5.7c.4 0 .7-.1.9-.4.3-.3.4-.6.4-.9 0-.4-.1-.7-.4-.9-.2-.3-.5-.4-.9-.4s-.7.1-.9.4c-.3.2-.4.5-.4.9s.1.7.4.9c.2.3.5.4.9.4zm0-5c1 0 1.9.4 2.6 1.1.7.7 1.1 1.6 1.1 2.6 0 .5-.1 1.1-.4 1.8s-.5 1.3-.9 1.9c-.4.5-.7 1.1-1.1 1.6-.4.5-.7.9-.9 1.2l-.4.4c-.1-.1-.2-.3-.4-.5s-.5-.6-.9-1.2c-.4-.5-.8-1-1.1-1.6s-.7-1.1-.9-1.8c-.3-.7-.4-1.3-.4-1.8 0-1 .4-1.9 1.1-2.6S5 .7 6 .7z">
+                       </path>
+                      </svg> 
+                  </span>
+                  <span> <%= accommodation.city.name %>  </span>
+                </tr>
+                <tr>
+                    <% if !accommodation.reviews.blank? %>
+                   <% @avg_review = accommodation.reviews.average(:rating).round(2) %>
+                <div class="star-rating" data-score= <%= @avg_review %> > </div> 
+                    <p style="font-style: italic;">( <%= accommodation.reviews.count %> Reviews ) </p>
+                    <% end %>
+                </tr>   
+              </div>  
+            </div>  
+
+          </div>        
+        </div>        
+      <% end %>
+      <%= will_paginate @accommodations %>
+    </div>
+  </div>
+
+
+<script>
+  $(' .star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+
+var x, i, j, l, ll, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script>
+
+
+
+

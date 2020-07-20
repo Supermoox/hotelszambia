@@ -1,0 +1,257 @@
+// Place all the styles related to the Accommos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.panel-body {
+	box-shadow:  10px 10px 5px #888888;
+}
+
+.main-right{
+	margin-top: 20px;
+
+	background-color: white;
+}
+
+.heading_accomo{
+	font-size: 20px;
+	margin-top: 10px;
+}
+.hotel_main{
+	background-color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 20px;
+}
+.hotel_bottom{
+	margin-top: 30px;
+}
+#room-display tr{
+	width:500px;
+}
+
+#contactHeader {
+	color: #6a5acd;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.room-images{
+	background-color: black;
+}
+
+
+
+h2 a{
+	color: 	#e0ffff;
+}
+h2 a:hover {
+	color: 	#fff; 
+}
+
+.side-content{
+	padding-bottom: 15px;
+
+}
+
+.reviews{
+	background-color: #e0ffff;
+	padding: 15px;
+	margin-bottom: 15px;
+	font-style: italic;
+	margin-top: 20px;
+}
+.rating-header{
+	margin: 15%;
+}
+.slideview{
+		box-shadow: 0px 3px 5px 0.5px rgba(0, 0, 0, 0.8);
+}
+
+.rooms-info{
+	background-color: #F5F5DC;
+	margin-top: 30px;
+}
+#images-footer {
+	margin-left: 60%;
+}
+
+.main-content {
+	background-color: #F5F5DC;
+	margin-top: 20px;
+}
+.contact_us {
+
+	#map-address {
+		iframe {
+			width: 100%;
+			height: 300px;
+		}
+	}
+}
+
+.heading {
+	color: #FFA500;
+	text-align: center;
+}
+.panel {
+	.heading{
+		text-align: center;
+	}
+}
+
+.form-group {
+    
+    textarea {
+		min-height: 200px;
+		resize: vertical;
+		overflow: auto;
+    }
+}
+
+.location{
+	height: 12px;
+    width: 12px;
+    position: relative;
+    top: 1px;
+    fill: #b5b7b8;
+    display: inline-block;
+}
+
+
+.nested-fields{
+	padding: 40px;
+	background-color: white;
+}
+
+.pics{
+	border: 1px solid #ccc;
+	padding: 20px;
+	width: 400px;
+}
+
+.room{
+	border: 1px solid #ccc;
+	width: 500px;
+}
+.wallpaper{
+		border: 1px solid #ccc;
+	width: 500px;
+}
+
+.empty-searh{
+	padding:40px;
+	background-color: white;
+}
+
+.carousel-inner{
+	height: 300px;
+}
+h5{
+	text-align:center;
+	margin:15px;
+}
+
+#search_city_id{
+	height: 42px;
+	width: 100%;
+	padding: 10px;
+}
+#search_category_id{
+	height: 42px;
+	width: 100%;
+	padding: 10px;
+}
+
+#search_keywords{
+	border: 1px solid #ccc;
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.roomfilter{
+	text-align: center;
+  box-shadow: 0px 0.1px 1px 0.5px rgba(0, 0, 0, 0.8);
+  padding:10px;
+}
+.search_item{
+	margin: 20px;
+}
+.pagination{
+	padding-left: 35%;
+	font-size: larger;
+	color:  #6a5acd;
+}
+.pagination a:visited{
+}
+
+
+
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  border: 1px solid #ccc;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: white;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #6a5acd transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #6a5acd transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+

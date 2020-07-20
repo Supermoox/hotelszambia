@@ -1,0 +1,81 @@
+<div class="accommodation-form">
+  <%= form_for @accommodation do |f| %>
+  <% if accommodation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(accommodation.errors.count, "error") %> prohibited this accommodation from being saved:</h2>
+
+      <ul>
+      <% accommodation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, :placeholder =>"name of the hotel", :required => true, class: "form-control" %>
+  </div>
+  <div class="form-group">
+        <%= f.label :maplink %><br>
+        <%= f.text_area :maplink, :placeholder =>"link for googlemap (you may leave it blank if you do not have a link yet)", :required => false, class: "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <%= f.label :tel %><br>
+        <%= f.text_field :tel, :placeholder =>"contact number", :required => true, class: "form-control" %>
+  </div>
+
+ 
+  <div class="form-group">
+        <%= f.label :email %><br>
+        <%= f.email_field :email, :placeholder =>"email", :required => true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, :placeholder =>"description", :required => true, class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :category_id %>
+    <%= collection_select(:accommodation, :category_id, Category.all, :id, :name, :prompt => "Select one!") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :city_id %>
+    <%= collection_select(:accommodation, :city_id, City.all, :id, :name, :prompt => "Select one!") %>
+  </div>
+
+
+ <div class="form-group">
+    <h4> Rooms</h4>
+    <div class="rooms">
+      <%= f.fields_for :rooms do |builder| %>
+        <%= render 'room_fields', f: builder %>
+      <% end %>
+    </div>
+
+    <div class="form-actions">
+      
+      <%= link_to_add_association 'Add a Room', f, :rooms, class: 'btn btn-primary', data: { association_insertion_node: '.rooms', association_insertion_method: :append } %>
+    </div>
+  </div>
+
+
+  <div class="form-group wallpapers-form">
+      <h4> Wallpapers</h4>
+      <div class="wallpapers">
+        <%= f.fields_for :wallpapers do |builder| %>
+          <%= render 'wallpaper_fields', f: builder %>
+        <% end %>
+      </div>
+      <div class="form-actions">
+        <%= link_to_add_association 'Add Wallpaper', f, :wallpapers, class: 'btn btn-primary', data: { association_insertion_node: '.wallpapers', association_insertion_method: :append } %>
+      </div>
+  </div>
+
+  <p><%= f.submit %></p>
+  <% end %>
+</div>
+

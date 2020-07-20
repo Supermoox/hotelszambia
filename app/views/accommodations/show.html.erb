@@ -1,0 +1,127 @@
+<div class="container"> 
+  <div class="row">
+    <div class="col-md-9">
+      <div class="hotel_main">   
+
+        <div class="row">   
+          <p class="heading_accomo">
+            <span style="color: grey;"><i class="fas fa-hospital" aria-hidden="true"></i></span>
+            <span><%= @accommodation.name %></span>      
+          </p>
+          <hr>
+        </div>
+        <div class="row"> 
+          <% if !@rooms.blank? %>
+            <% @rooms.each do |room| %>
+              <% room.pictures.each do |picture| %>
+                <div class="col-md-3">
+                  <div class="thumbnail">
+                    <div id="gallery">
+                      <div class="photo photo-type-line">
+                        <a href="<%= picture.image %>" class="photo-hover" data-lightbox="my-images" data-title=" k <%= room.price %> per/night">
+                          <div class="photo-info">
+                            <div class="headline"> k <%= room.price %></div>
+                            <div class="line"></div>
+                            <div class="disc"> per/night </div>
+                          </div>            
+                          <div class="mask"></div>
+                        </a>
+                        <div class="photo-img"> <%= image_tag picture.image %></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+
+
+        <div class="row hotel_bottom">
+          <div class="contact_us">
+            <% unless googlemap_frame(@accommodation.maplink).blank? %>
+              <h4 id="contactHeader"> Map </h4> 
+              <div id="map-address">           
+                <%= googlemap_frame(@accommodation.maplink) %>
+              </div>
+            <% end %>
+            <div class="panel">
+              <hr>
+              <div class="hood">
+                <div class="row">
+                  <div class="col-md-6 contact-details">
+                    <h4>Get in touch</h4>
+                    <span class="phone">Tel: </span><tab>&#43; <%= @accommodation.tel %> <br><br>
+                    <span class="email">Email: </span><tab>&#43;<%= @accommodation.email %><br><br>    
+                  </div>
+                  <div class="col-md-6 contact-details"">
+                    <h4>Info</h4>
+                    <p>
+                      <span class="address"> <tab> <%= @accommodation.description %></tab></span>
+                    </p>
+                  </div>
+                </div>   
+              </div>   
+            </div>
+          </div>
+        </div> 
+        <h4> <%= link_to '<< Back', accommodations_path %> </h4>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-3">
+      <div class="reviews">
+        <div class="rating-header">
+          <div class="rating-header">
+            <h4 style="color:#6a5acd;"> Ovarall rating</h4> 
+             <div class="star-rating" data-score= <%= @avg_review %> > </div>
+
+          </div>
+        </div>
+        <% if @reviews.blank? %>
+            <h5> No reviews for this hotel just yet. Be the first to review this hotel! </h5>
+        <% else %>
+          <h4 style="color:#6a5acd;"> <span>Reviews </span><span><%= "(#{@reviews.length})" %></span></h4>
+          <% @reviews.each do |review| %>
+          <div style="border-bottom: 1px solid #ccc; padding: 10px;">
+            <p> <%= review.comment %></p>
+            <p style="color: grey"> <%= review.user.username %> </p>
+          </div>
+       <% end %>
+       <% end %>
+        <h5>
+          <%= link_to 'Write a Review', new_accommodation_review_path(@accommodation), class: "btn btn-warning" %>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(' .star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+</script>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+
+            //Check if the current URL contains '#' 
+            if(document.URL.indexOf("#")==-1)
+            {
+                // Set the URL to whatever it was plus "#".
+                url = document.URL+"#";
+                location = "#";
+
+                //Reload the page
+                location.reload(true);
+
+            }
+        });
+</script>

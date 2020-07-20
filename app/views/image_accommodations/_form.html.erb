@@ -1,0 +1,33 @@
+<%= form_for([@accommodations, @image_accommodation]) do |form| %>
+
+  <% if image_accommodation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(image_accommodation.errors.count, "error") %> prohibited this image_accommodation from being saved:</h2>
+
+      <ul>
+      <% image_accommodation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :image_accommodation_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accommodation_id %>
+    <%= collection_select(:image_accommodation, :accommodation_id, Accommodation.all, :id, :name, :prompt => "Select one!") %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

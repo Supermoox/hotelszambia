@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Image Rooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Room</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @image_rooms.each do |image_room| %>
+      <tr>
+        <td><%= image_room.name %></td>
+        <td><%= image_room.room %></td>
+        <td><%= link_to 'Show', image_room %></td>
+        <td><%= link_to 'Edit', edit_image_room_path(image_room) %></td>
+        <td><%= link_to 'Destroy', image_room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Image Room', new_image_room_path %>

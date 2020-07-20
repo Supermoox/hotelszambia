@@ -1,0 +1,33 @@
+<div class="nested-fields room">
+  <p>
+	<%= link_to_remove_association "remove room", f, class: 'btn btn-primary btn-xs' %>
+	</p>
+  <p>
+		<%= f.label :room_number %>
+		 <%= f.text_field :room_number, lebel: false %>	
+   </p>
+
+   <p>
+      <%= f.label :price %>
+      <%= f.text_field :price, lebel: false %>
+   </p>
+   <p>
+   		<%= f.label :description %>
+   		<%= f.text_field :description, lebel: false %>
+   </p>
+
+
+    <div class="form-group">
+
+          <div class="pictures">
+            <%= f.fields_for :pictures do |builder| %>
+              <%= render 'picture_fields', f: builder %>
+            <% end %>
+          </div>
+          <div class="actions">
+            <%= link_to_add_association 'Add an Image for this room', f, :pictures, :required => true, class: 'btn btn-primary', data: { association_insertion_node: '.pictures', association_insertion_method: :append } %>
+          </div>
+      </div>
+       <p>    <%= f.submit %> </p>
+
+</div>
