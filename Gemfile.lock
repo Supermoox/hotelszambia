@@ -141,7 +141,7 @@ GEM
       mimemagic (~> 0.3.0)
     pg (0.21.0)
     public_suffix (3.0.0)
-    puma (3.10.0)
+    puma (3.12.6)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -246,7 +246,7 @@ DEPENDENCIES
   mailboxer
   paperclip (~> 5.1)
   pg (~> 0.18)
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
   selenium-webdriver
