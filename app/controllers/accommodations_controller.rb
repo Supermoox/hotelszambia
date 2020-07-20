@@ -26,6 +26,10 @@ class AccommodationsController < ApplicationController
   end
 
   def new
+    if current_user.email != 'onemoox@gmail.com'
+      redirect_to root_path
+      flash[:notice] = "You are not allowed to add a hotel!"
+    end
     @accommodation = current_user.accommodations.build
     @rooms = Room.where(accommodation_id: @accommodation.id).order("created_at DESC")
     @wallpapers = Wallpaper.where(accommodation_id: @accommodation.id).order("created_at DESC")

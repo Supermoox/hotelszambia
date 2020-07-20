@@ -1,5 +1,23 @@
 
 
+            <div class="col-md-3">
+                  <div class="thumbnail">
+                    <div id="gallery">
+                      <div class="photo photo-type-line">
+                        <a href="<%= picture.image %>" class="photo-hover" data-lightbox="my-images" data-title=" k <%= room.price %> per/night">
+                          <div class="photo-info">
+                            <div class="headline"> k <%= room.price %></div>
+                            <div class="line"></div>
+                            <div class="disc"> per/night </div>
+                          </div>            
+                          <div class="mask"></div>
+                        </a>
+                        <div class="photo-img"> <%= image_tag picture.image %></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
 
 
     <div class="main-right">
