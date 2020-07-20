@@ -25,6 +25,18 @@
         </div>
         <% end %>
       </div>
+
+        <div class="side-content">
+          <div class="About">
+            <h3 style="text-align: center; color: #6a5acd;">Welcome!</h3>
+            <h5>Here you find hotels that suit your needs.</h5>
+             <h4 class="page-header" ><%= link_to 'Add A Hotel', new_accommodation_path %> </h4>
+          </div>
+          <h4 class="page-header"> <%= link_to "My Hotels",my_accommodations_path %></h4>
+        </div>
+        <div class="roomfilter">
+        <%= render 'layouts/roomsearcher' %>
+        </div>
     </div>
     
     <div class="col-md-9 ">
