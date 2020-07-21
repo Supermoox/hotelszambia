@@ -12,7 +12,7 @@
         </div>
         <div class="row"> 
           <% unless @accommodation.wallpapers.blank? %>
-            <% @accommodation.wallpapers.order("id ").each do |picture| %>
+            <% @accommodation.wallpapers.each do |picture| %>
                 <div class="col-md-3">
                   <div class="thumbnail">
                     <div id="gallery">
